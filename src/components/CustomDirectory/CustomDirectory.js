@@ -8,25 +8,45 @@ import DirectoryItem from './DirectoryItem';
 const directoryEntries = [
   {
     id: '12345',
-    name: 'Field User 1'
+    name: 'Allen Wentworth'
   }, {
     id: '56789',
-    name: 'Field User 2'
+    name: 'Jack Harrington'
   }
 ];
 
 export class CustomDirectory extends React.Component {
+  state = {
+    searchTerm: ''
+  }
+
+  filteredDirectory = () => {
+    const { searchTerm } = this.state;
+    return directoryEntries.filter(entry => {
+      if (!searchTerm) {
+        return true;
+      }
+      return entry.name.includes(searchTerm);
+    })
+  }
+
+  onSearchInputChange = e => {
+    this.setState({ searchTerm: e.target.value })
+  }
+
   onTransferClick = item => payload => {
     console.log('Transfer clicked');
     console.log('Transfer item:', item);
     console.log('Transfer payload:', payload);
   }
+
   render() {
     return (
       <TabContainer key="custom-directory-container">
         <InputContainer key="custom-directory-input-container">
           <StyledInput
             key="custom-directory-input-field"
+            onChange={this.onSearchInputChange}
             placeholder={templates.WorkerDirectorySearchPlaceholder()}
           />
         </InputContainer>
@@ -35,8 +55,8 @@ export class CustomDirectory extends React.Component {
           className="Twilio-WorkerDirectory-Workers"
           vertical
         >
-          {console.warn('Directory entries:', directoryEntries)}
-          {directoryEntries.map(item => {
+          {console.warn('Directory entries:', this.filteredDirectory())}
+          {this.filteredDirectory().map(item => {
             console.warn('Directory item:', item);
             return (
               <DirectoryItem
