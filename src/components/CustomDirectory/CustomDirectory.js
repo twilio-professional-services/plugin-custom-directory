@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tab, templates } from '@twilio/flex-ui';
+import { Tab, templates, withTaskContext } from '@twilio/flex-ui';
 import {
   TabContainer, InputContainer, StyledInput, ItemContainer
 } from './CustomDirectoryComponents';
@@ -15,7 +15,7 @@ const directoryEntries = [
   }
 ];
 
-export class CustomDirectory extends React.Component {
+class CustomDirectory extends React.Component {
   state = {
     searchTerm: ''
   }
@@ -71,3 +71,5 @@ export class CustomDirectory extends React.Component {
     )
   }
 }
+
+export default withTaskContext(CustomDirectory);
