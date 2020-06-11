@@ -25,6 +25,7 @@ This project is currently **Feature-Complete**. There is still some testing, pol
   - [X] Sort workers alphabetically
   - [X] Tab to front
   - [X] "Directory" --> "Team"
+  - [ ] Migrate `team_lead_sid` to `team_id` to leverage pre-existing Flex Insights standards and tie into reporting
 - [ ] Test
   - [ ] Unmodified workers
   - [ ] Invalid Signature
