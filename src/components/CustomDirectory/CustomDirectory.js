@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tab, templates, withTaskContext } from '@twilio/flex-ui';
+import { templates, withTaskContext } from '@twilio/flex-ui';
 import {
   TabContainer, InputContainer, StyledInput, ItemContainer
 } from './CustomDirectoryComponents';
