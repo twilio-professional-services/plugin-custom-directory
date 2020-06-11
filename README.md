@@ -24,7 +24,7 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [ ] Pull in Cold Transfers
 - [ ] Enhancements/Bugfixes
   - [X] Validate Twilio Signature
-  - [ ] Sort responses alphabetically
+  - [ ] Sort workers alphabetically
   - [X] Tab to front
   - [X] Directory --> "Team"
 - [ ] Test
@@ -33,4 +33,6 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [ ] Function errors
 - [ ] Flesh out the README
   - [ ] Demo
+    - [ ] Media Branch
+    - [ ] Recording
   - [ ] Setup/Configuration
