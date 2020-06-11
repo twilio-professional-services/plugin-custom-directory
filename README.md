@@ -17,11 +17,11 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [X] Modify all workers
   - [X] Build Function
   - [X] Incorporate function into the Directory Component
-- [ ] Incorporate Transfer functionality from the [Native Flex Dialpad Add-on
+- [X] Incorporate Transfer functionality from the [Native Flex Dialpad Add-on
  Plugin](https://github.com/twilio-professional-services/flex-dialpad-addon-plugin)
   - [X] Refactor Transfer button structure (currently errors)
-  - [ ] Pull in Warm Transfers
-  - [ ] Pull in Cold Transfers
+  - [X] Pull in Warm Transfers _note: Actions framework "TransferTask" appears to work_
+  - [X] Pull in Cold Transfers _note: Actions framework "TransferTask" appears to work_
 - [ ] Enhancements/Bugfixes
   - [X] Validate Twilio Signature
   - [ ] Sort workers alphabetically
@@ -31,6 +31,7 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [ ] Unmodified workers
   - [ ] Invalid Signature
   - [ ] Function errors
+  - [ ] Transfer failures
 - [ ] Flesh out the README
   - [ ] Demo
     - [ ] Media Branch

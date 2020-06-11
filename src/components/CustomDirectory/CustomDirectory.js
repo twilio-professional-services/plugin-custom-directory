@@ -64,10 +64,15 @@ class CustomDirectory extends React.Component {
     this.setState({ searchTerm: e.target.value })
   }
 
-  onTransferClick(item, payload) {
+  onTransferClick(worker, options) {
     console.log('Transfer clicked');
-    console.log('Transfer item:', item);
-    console.log('Transfer payload:', payload);
+    console.log('Transfer worker:', worker);
+    console.log('Transfer options:', options);
+    this.props.invokeTransfer({
+      task: this.props.task,
+      options: options,
+      targetSid: worker.sid
+    })
   }
 
   render() {
