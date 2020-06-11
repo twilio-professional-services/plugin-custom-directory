@@ -10,8 +10,8 @@ exports.handler = async function (context, event, callback) {
 
   response.appendHeader('Content-Type', 'application/json');
   response.appendHeader('Access-Control-Allow-Origin', '*');
-  response.appendHeader('Access-Control-Allow-Methods', 'OPTIONS POST');
-  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+  response.appendHeader('Access-Control-Allow-Methods', 'OPTIONS, POST');
+  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, X-Twilio-Signature');
 
   try {
     if (Object.keys(event).length === 0) {

@@ -9,24 +9,12 @@ import {
   TabContainer, InputContainer, StyledInput, ItemContainer
 } from './CustomDirectoryComponents';
 
-const directoryEntries = [
-  {
-    id: '12345',
-    name: 'Allen Wentworth'
-  }, {
-    id: '56789',
-    name: 'Jack Harrington'
-  }
-];
-
 class CustomDirectory extends React.Component {
   state = {
     searchTerm: ''
   }
 
   componentDidMount() {
-    console.log("mounted")
-
     this.getDirectoryEntries();
   }
 
@@ -37,6 +25,7 @@ class CustomDirectory extends React.Component {
     };
     let axiosOptions = {
       headers: {
+        'X-Twilio-Signature': this.props.getToken(),
         'Content-Type': 'application/json',
       }
     };

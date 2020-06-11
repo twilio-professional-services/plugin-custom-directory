@@ -24,6 +24,7 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
       flex: flex,
       manager: manager
     }
+
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
@@ -31,8 +32,9 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
       >
         <CustomDirectory
           runtimeDomain = { PluginConfig.runtimeDomain }
-          getToken = { () => manager.store.getState().flex.session.ssoTokenPayload.token }
-          teamLeadSid = { manager.workerClient.sid }
+          getToken      = { () => manager.store.getState().flex.session.ssoTokenPayload.token }
+          teamLeadSid   = { manager.workerClient.attributes.team_lead_sid || manager.workerClient.sid }
+          skipWorkerIf  = { (worker) => worker.sid === manager.workerClient.sid }
         />
       </flex.Tab>
     );
