@@ -1,9 +1,7 @@
 import React from 'react';
-import { VERSION, TaskHelper } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
+import PluginConfig from './config'
 
-import CustomTaskListContainer from './components/CustomTaskList/CustomTaskList.Container';
-import reducers, { namespace } from './states';
 
 import CustomDirectory from './components/CustomDirectory';
 
@@ -22,36 +20,21 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
-    // this.registerReducers(manager);
-
-    // const options = { sortOrder: -1 };
-    // flex.AgentDesktopView
-    //   .Panel1
-    //   .Content
-    //   .add(<CustomTaskListContainer key="demo-component" />, options);
-
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
-        label="Directory"
+        label="Team"
       >
-        <CustomDirectory />
+        <CustomDirectory
+          runtimeDomain   = { PluginConfig.runtimeDomain }
+          getToken        = { () => manager.store.getState().flex.session.ssoTokenPayload.token }
+          teamLeadSid     = { manager.workerClient.attributes.team_lead_sid || manager.workerClient.sid }
+          skipWorkerIf    = { (worker) => worker.sid === manager.workerClient.sid }
+          invokeTransfer  = { (params) => { flex.Actions.invokeAction("TransferTask", params); flex.Actions.invokeAction("HideDirectory")} }
+        />
       </flex.Tab>
-    );
-  }
-
-  /**
-   * Registers the plugin reducers
-   *
-   * @param manager { Flex.Manager }
-   */
-  registerReducers(manager) {
-    if (!manager.store.addReducer) {
-      // eslint: disable-next-line
-      console.error(`You need FlexUI > 1.9.0 to use built-in redux; you are currently on ${VERSION}`);
-      return;
-    }
-
-    manager.store.addReducer(namespace, reducers);
+    , {
+      sortOrder: -1
+    });
   }
 }

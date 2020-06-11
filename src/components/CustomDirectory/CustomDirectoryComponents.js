@@ -2,12 +2,7 @@ import {
   FlexBox,
   getBackgroundWithHoverCSS,
   IconButton,
-  Animations,
-  FlexBoxProperties,
   FlexBoxColumn,
-  ThemeProps,
-  Theme,
-  StyledOtherComponent,
 } from '@twilio/flex-ui'
 import styled from 'react-emotion';
 import Input from '@material-ui/core/Input';
