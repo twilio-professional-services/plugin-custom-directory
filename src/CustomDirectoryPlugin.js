@@ -1,8 +1,5 @@
 import React from 'react';
-import { VERSION } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
-
-import reducers, { namespace } from './states';
 
 import CustomDirectory from './components/CustomDirectory';
 
@@ -29,20 +26,5 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
         <CustomDirectory />
       </flex.Tab>
     );
-  }
-
-  /**
-   * Registers the plugin reducers
-   *
-   * @param manager { Flex.Manager }
-   */
-  registerReducers(manager) {
-    if (!manager.store.addReducer) {
-      // eslint: disable-next-line
-      console.error(`You need FlexUI > 1.9.0 to use built-in redux; you are currently on ${VERSION}`);
-      return;
-    }
-
-    manager.store.addReducer(namespace, reducers);
   }
 }
