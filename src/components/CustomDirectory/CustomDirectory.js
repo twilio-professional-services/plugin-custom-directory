@@ -51,6 +51,9 @@ class CustomDirectory extends React.Component {
     }
     const { searchTerm } = this.state;
     return this.state.directoryEntries.filter(entry => {
+      if (this.props.skipWorkerIf && this.props.skipWorkerIf(entry)) {
+        return false;
+      }
       if (!searchTerm) {
         return true;
       }

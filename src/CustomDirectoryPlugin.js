@@ -28,7 +28,7 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
-        label="Directory"
+        label="Team"
       >
         <CustomDirectory
           runtimeDomain = { PluginConfig.runtimeDomain }
@@ -37,6 +37,8 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
           skipWorkerIf  = { (worker) => worker.sid === manager.workerClient.sid }
         />
       </flex.Tab>
-    );
+    , {
+      sortOrder: -1
+    });
   }
 }
