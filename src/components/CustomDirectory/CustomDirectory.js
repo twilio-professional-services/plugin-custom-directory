@@ -49,14 +49,18 @@ class CustomDirectory extends React.Component {
       return []
     }
     const { searchTerm } = this.state;
-    return this.state.directoryEntries.filter(entry => {
-      if (this.props.skipWorkerIf && this.props.skipWorkerIf(entry)) {
+    return this.state.directoryEntries.filter(worker => {
+      if (this.props.skipWorkerIf && this.props.skipWorkerIf(worker)) {
         return false;
       }
       if (!searchTerm) {
         return true;
       }
-      return entry.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return worker.name.toLowerCase().includes(searchTerm.toLowerCase());
+    }).sort((a, b) => {
+      let a_name = a.attributes.full_name || a.attributes.friendlyName;
+      let b_name = b.attributes.full_name || b.attributes.friendlyName;
+      return (a_name > b_name) ? 1 : -1;
     })
   }
 

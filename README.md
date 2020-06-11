@@ -24,9 +24,9 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [X] Pull in Cold Transfers _note: Using Actions framework "TransferTask" rather than the addon strategy _
 - [ ] Enhancements/Bugfixes
   - [X] Validate Twilio Signature
-  - [ ] Sort workers alphabetically
+  - [X] Sort workers alphabetically
   - [X] Tab to front
-  - [X] Directory --> "Team"
+  - [X] "Directory" --> "Team"
 - [ ] Test
   - [ ] Unmodified workers
   - [ ] Invalid Signature
