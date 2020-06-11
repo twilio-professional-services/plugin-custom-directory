@@ -1,8 +1,7 @@
 import React from 'react';
-import { VERSION, TaskHelper } from '@twilio/flex-ui';
+import { VERSION } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
 
-import CustomTaskListContainer from './components/CustomTaskList/CustomTaskList.Container';
 import reducers, { namespace } from './states';
 
 import CustomDirectory from './components/CustomDirectory';
@@ -22,14 +21,6 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
-    // this.registerReducers(manager);
-
-    // const options = { sortOrder: -1 };
-    // flex.AgentDesktopView
-    //   .Panel1
-    //   .Content
-    //   .add(<CustomTaskListContainer key="demo-component" />, options);
-
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
