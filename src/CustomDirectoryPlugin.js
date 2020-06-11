@@ -1,5 +1,7 @@
 import React from 'react';
 import { FlexPlugin } from 'flex-plugin';
+import PluginConfig from './config'
+
 
 import CustomDirectory from './components/CustomDirectory';
 
@@ -18,12 +20,20 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
+    window.jevon = {
+      flex: flex,
+      manager: manager
+    }
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
         label="Directory"
       >
-        <CustomDirectory />
+        <CustomDirectory
+          runtimeDomain = { PluginConfig.runtimeDomain }
+          getToken = { () => manager.store.getState().flex.session.ssoTokenPayload.token }
+          teamLeadSid = { manager.workerClient.sid }
+        />
       </flex.Tab>
     );
   }

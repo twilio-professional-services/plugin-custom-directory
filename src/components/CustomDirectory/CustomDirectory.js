@@ -1,9 +1,13 @@
 import * as React from "react";
+import Url from 'url'
+import Axios from 'axios';
+
 import { templates, withTaskContext } from '@twilio/flex-ui';
+
+import DirectoryItem from './DirectoryItem';
 import {
   TabContainer, InputContainer, StyledInput, ItemContainer
 } from './CustomDirectoryComponents';
-import DirectoryItem from './DirectoryItem';
 
 const directoryEntries = [
   {
@@ -20,9 +24,44 @@ class CustomDirectory extends React.Component {
     searchTerm: ''
   }
 
-  filteredDirectory = () => {
+  componentDidMount() {
+    console.log("mounted")
+
+    this.getDirectoryEntries();
+  }
+
+  async getDirectoryEntries() {
+    // Build out the config blocks for Axios
+    let axiosBody = {
+      teamLeadSid: this.props.teamLeadSid,
+    };
+    let axiosOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+    let url = Url.resolve(this.props.runtimeDomain, 'getTeamMembers');
+    // let url = this.props.runtimeDomain;
+
+    // Make it happen!
+    let { data } = await Axios.post(url, axiosBody, axiosOptions);
+    if (data && data.success && data.payload) {
+      this.setState({
+        directoryEntries: data.payload.workers || []
+      })
+      console.error(data.payload.workers)
+    } else {
+      console.error(data)
+    }
+
+  }
+
+  filteredDirectory() {
+    if (!this.state.directoryEntries) {
+      return []
+    }
     const { searchTerm } = this.state;
-    return directoryEntries.filter(entry => {
+    return this.state.directoryEntries.filter(entry => {
       if (!searchTerm) {
         return true;
       }
@@ -30,17 +69,20 @@ class CustomDirectory extends React.Component {
     })
   }
 
-  onSearchInputChange = e => {
+  onSearchInputChange(e) {
     this.setState({ searchTerm: e.target.value })
   }
 
-  onTransferClick = item => payload => {
+  onTransferClick(item, payload) {
     console.log('Transfer clicked');
     console.log('Transfer item:', item);
     console.log('Transfer payload:', payload);
   }
 
   render() {
+    if (!this.state.directoryEntries) {
+      return <div />
+    }
     return (
       <TabContainer key="custom-directory-container">
         <InputContainer key="custom-directory-input-container">
@@ -61,7 +103,7 @@ class CustomDirectory extends React.Component {
             return (
               <DirectoryItem
                 item={item}
-                key={item.id}
+                key={item.sid}
                 onTransferClick={this.onTransferClick(item)}
               />
             );

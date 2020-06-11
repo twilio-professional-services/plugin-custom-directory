@@ -23,10 +23,10 @@ class DirectoryItem extends React.Component {
         <WorkerMarginPlaceholder noGrow noShrink />
         <UserCard
           className="Twilio-WorkerDirectory-UserCard"
-          firstLine={this.props.item.name}
-          secondLine={this.props.item.id}
-          isAvailable
-          imageUrl=""
+          firstLine={this.props.item.attributes.full_name || this.props.item.attributes.friendlyName}
+          secondLine={this.props.item.activityName}
+          isAvailable={this.props.item.available}
+          imageUrl={this.props.item.attributes.image_url || ""}
           large
         />
         <ButtonContainer className="Twilio-WorkerDirectory-ButtonContainer">

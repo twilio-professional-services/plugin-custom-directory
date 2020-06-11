@@ -23,7 +23,7 @@ exports.handler = async function (context, event, callback) {
       }
     }
 
-    if (!event.team_lead_sid) {
+    if (!event.teamLeadSid) {
       // This handles the case where a specific parameter was not sent
       throw {
         status: 400,
@@ -38,21 +38,19 @@ exports.handler = async function (context, event, callback) {
       .workspaces(context.TWILIO_WORKSPACE_SID)
       .workers
       .list({
-        targetWorkersExpression: `team_lead_sid = "${event.team_lead_sid}"`
+        targetWorkersExpression: `team_lead_sid = "${event.teamLeadSid}"`
       });
 
     // Now let's define our response Worker objects
     const workerObjects = workers.map((worker) => {
       return {
         sid: worker.sid,
-        contact_uri: worker.contact_uri,
-        friendly_name: worker.friendly_name,
-        activity_name: worker.activity_name,
+        friendlyName: worker.friendlyName,
+        activityName: worker.activityName,
         attributes: JSON.parse(worker.attributes),
         available: worker.available
       }
     });
-
     responseBody.success = true;
     responseBody.payload.workers = workerObjects;
   } catch (e) {
