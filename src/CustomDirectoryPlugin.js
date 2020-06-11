@@ -20,11 +20,6 @@ export default class CustomDirectoryPlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
-    window.jevon = {
-      flex: flex,
-      manager: manager
-    }
-
     flex.WorkerDirectory.Tabs.Content.add(
       <flex.Tab
         key="custom-directory"
