@@ -51,6 +51,22 @@ Before beginning with this Flex plugin, you'll want to make sure that:
 - You have the latest [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart) installed
 - Your Twilio CLI is running the latest [Serverless Plugin](https://github.com/twilio-labs/plugin-serverless)
 
+### Workers
+This plugin assumes a simple one-to-many _Team_ structure – all workers must have a single _Team Leader_. That _Team Leader's_ Worker SID must be populated in their `team_leader_sid` worker attribute. Here is an example of a worker's attributes containing this value:
+
+``` json
+{
+  "contact_uri": "client:redshirt",
+  "full_name": "Red Shirt",
+  "image_url": "https:\\/\\/p199.p4.n0.cdn.getcloudapp.com\\/items\\/8Lu7y5on\\/Image%202020-06-09%20at%209.36.09%20AM.jpg",
+  "email": "no-reply@twilio.com",
+  "roles": [
+    "agent"
+  ],
+  "team_lead_sid": "WKf4cbd765a0ed1c0fee5b3bb655e1c851"
+}
+```
+
 ### Configuration
 Over the course of the configuration process, you'll need several values from your Twilio account. The first three can be found right now in the Twilio Console, but the last one will require you to deploy your Twilio Functions to find (Don't worry, we'll cover that!)
 
