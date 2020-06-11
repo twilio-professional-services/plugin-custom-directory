@@ -20,8 +20,13 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
 - [ ] Incorporate Transfer functionality from the [Native Flex Dialpad Add-on
  Plugin](https://github.com/twilio-professional-services/flex-dialpad-addon-plugin)
   - [ ] Refactor Transfer button structure (currently errors)
-  - [ ] Pull in Warm Transfer
-  - [ ] Pull in Cold transfere
+  - [ ] Pull in Warm Transfers
+  - [ ] Pull in Cold Transfers
+- [ ] Enhancements/Bugfixes
+  - [X] Validate Twilio Signature
+  - [ ] Sort responses alphabetically
+  - [X] Tab to front
+  - [ ] Directory --> "Team"
 - [ ] Test
 - [ ] Flesh out the README
   - [ ] Demo
