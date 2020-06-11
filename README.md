@@ -26,8 +26,11 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [X] Validate Twilio Signature
   - [ ] Sort responses alphabetically
   - [X] Tab to front
-  - [ ] Directory --> "Team"
+  - [X] Directory --> "Team"
 - [ ] Test
+  - [ ] Unmodified workers
+  - [ ] Invalid Signature
+  - [ ] Function errors
 - [ ] Flesh out the README
   - [ ] Demo
   - [ ] Setup/Configuration
