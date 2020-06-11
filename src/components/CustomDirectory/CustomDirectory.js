@@ -38,9 +38,8 @@ class CustomDirectory extends React.Component {
       this.setState({
         directoryEntries: data.payload.workers || []
       })
-      console.error(data.payload.workers)
     } else {
-      console.error(data)
+      console.error("COULD NOT LOAD WORKERS.", data)
     }
 
   }
