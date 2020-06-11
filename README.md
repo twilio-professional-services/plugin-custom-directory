@@ -20,8 +20,8 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
 - [X] Incorporate Transfer functionality from the [Native Flex Dialpad Add-on
  Plugin](https://github.com/twilio-professional-services/flex-dialpad-addon-plugin)
   - [X] Refactor Transfer button structure (currently errors)
-  - [X] Pull in Warm Transfers _note: Actions framework "TransferTask" appears to work_
-  - [X] Pull in Cold Transfers _note: Actions framework "TransferTask" appears to work_
+  - [X] Pull in Warm Transfers _note: Using Actions framework "TransferTask" rather than the addon strategy _
+  - [X] Pull in Cold Transfers _note: Using Actions framework "TransferTask" rather than the addon strategy _
 - [ ] Enhancements/Bugfixes
   - [X] Validate Twilio Signature
   - [ ] Sort workers alphabetically
