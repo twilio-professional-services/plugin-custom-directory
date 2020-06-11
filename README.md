@@ -19,7 +19,7 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
   - [X] Incorporate function into the Directory Component
 - [ ] Incorporate Transfer functionality from the [Native Flex Dialpad Add-on
  Plugin](https://github.com/twilio-professional-services/flex-dialpad-addon-plugin)
-  - [ ] Refactor Transfer button structure (currently errors)
+  - [X] Refactor Transfer button structure (currently errors)
   - [ ] Pull in Warm Transfers
   - [ ] Pull in Cold Transfers
 - [ ] Enhancements/Bugfixes

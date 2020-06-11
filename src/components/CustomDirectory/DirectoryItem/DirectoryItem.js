@@ -10,11 +10,11 @@ import { WorkerMarginPlaceholder } from './DirectoryItemComponents';
 
 class DirectoryItem extends React.Component {
   onWarmTransferClick = (e) => {
-    this.props.onTransferClick({ mode: "WARM" });
+    this.props.onTransferClick(this.props.item, { mode: "WARM" });
   };
 
   onColdTransferClick = (e) => {
-    this.props.onTransferClick({ mode: "COLD" });
+    this.props.onTransferClick(this.props.item, { mode: "COLD" });
   };
 
   render() {
