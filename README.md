@@ -4,9 +4,7 @@ This plugin implements a *Custom Transfers Directory* tab in the [Twilio Flex](h
 
 ## Status
 
-This project is currently **In-Progress**.
-
-It is not intended to be used _as-is_, but may be used as sample code. Please refer to the TODO list for detailed status.
+This project is currently **Feature-Complete**. There is still some testing, polish, and documentation work to do, but all feature requirements have been satisfied. Please refer to the TODO list for details.
 
 ### TODO
 - [X] Fork existing [Custom Directory Plugin](https://github.com/trogers-twilio/plugin-custom-directory/) sample code
@@ -37,6 +35,11 @@ It is not intended to be used _as-is_, but may be used as sample code. Please re
     - [ ] Media Branch
     - [ ] Recording
   - [ ] Setup/Configuration
+
+## Disclaimer
+As Open Source Software from Twilio Professional Services, this project is not supported by Twilio Support. In using this project, you are assuming ownership over the code and its implementation.
+
+For bug reports and feature requests, please submit a Github Issue.
 
 ## Setup
 
@@ -174,7 +177,7 @@ npm start
 This will automatically start up the Webpack Dev Server and open the browser for you. Your app will run on `http://localhost:3000`. If you want to change that you can do this by setting the `PORT` environment variable:
 
 ```bash
-PORT=3000 npm start
+PORT=3001 npm start
 ```
 
 When you make changes to your code, the browser window will be automatically refreshed.
