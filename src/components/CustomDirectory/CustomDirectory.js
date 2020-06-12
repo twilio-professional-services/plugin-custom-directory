@@ -35,7 +35,6 @@ class CustomDirectory extends React.Component {
     };
     let axiosOptions = {
       headers: {
-        'X-Twilio-Signature': this.props.getToken(),
         'Content-Type': 'application/json',
       }
     };
