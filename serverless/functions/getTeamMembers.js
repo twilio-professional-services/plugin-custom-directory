@@ -8,11 +8,6 @@ exports.handler = async function (context, event, callback) {
     }
   } // and this will be the Body of the response
 
-  response.appendHeader('Content-Type', 'application/json');
-  response.appendHeader('Access-Control-Allow-Origin', '*');
-  response.appendHeader('Access-Control-Allow-Methods', 'OPTIONS, POST');
-  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, X-Twilio-Signature');
-
   try {
     if (Object.keys(event).length === 0) {
       // This handles the case where NO parameters were sent, allowing for empty Options request (since we don't have access to the Request method/headers)
@@ -28,7 +23,7 @@ exports.handler = async function (context, event, callback) {
       throw {
         status: 400,
         code: 60200,
-        message: "Request must include a channelSid"
+        message: "Request must include a teamLeadSid"
       }
     }
 
@@ -65,5 +60,12 @@ exports.handler = async function (context, event, callback) {
   }
 
   response.setBody(responseBody);
+
+  response.appendHeader('Content-Type', 'application/json');
+  response.appendHeader('Access-Control-Allow-Origin', '*');
+  response.appendHeader('Access-Control-Allow-Methods', 'OPTIONS POST GET');
+  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, X-Twilio-Signature');
+  response.appendHeader('X-potestop-potestoop', 'asdfasdfasdf');
+
   return callback(null, response);
 }
