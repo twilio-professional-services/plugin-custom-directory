@@ -1,3 +1,7 @@
+# Notice - Legacy Code
+
+**This plugin is no longer maintained and has been updated as part of the [Flex Plugin Library](https://www.twilio.com/docs/flex/developer/plugins/plugin-library) where it is available as an out-of-box feature. The updated plugin is also available as part of the customizable [Flex Project Template](https://github.com/twilio-professional-services/flex-project-template), where it is an optional feature.**
+
 # Flex Custom Directory Plugin
 
 This plugin implements a *Custom Transfers Directory* tab in the [Twilio Flex](https://www.twilio.com/flex) [Native Dialpad](https://www.twilio.com/docs/flex/dialpad). It includes code for [Twilio Functions](https://www.twilio.com/docs/runtime/functions) as well as frontend UI code in the form of a [Flex plugin](https://www.twilio.com/docs/flex/quickstart/getting-started-plugin).
